@@ -3,8 +3,13 @@ const express = require("express");
 const hbs = require("hbs");
 const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
+const dotenv = require('dotenv');
 
 const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Load env vars
+dotenv.config({ path: './config/config.env' });
 
 // Define Paths for Express config
 const publicDirectorypath = path.join(__dirname, "../public");
@@ -95,6 +100,9 @@ app.get("*", (req, res, next) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log("Server is online on port 3000.")
-})
+app.listen(
+    PORT,
+    console.log(
+      `Server running on port ${PORT}`
+    )
+  );
