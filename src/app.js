@@ -103,6 +103,6 @@ app.get("*", (req, res, next) => {
 app.listen(
     PORT,
     console.log(
-      `Server running  n port ${PORT}`
+      `Server running in port ${PORT}`
     )
   );
